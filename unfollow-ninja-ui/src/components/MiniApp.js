@@ -56,23 +56,23 @@ const LOGOUT = gql`
 const LoggedInIntro = ({ user, logout, removeDMs }) => {
     if (!user) return null; // not logged in
 
-    let message = <Paragraph>Plus qu'une étape pour activer le service :<br/> Choisissez un compte pour vous envoyer les notifications</Paragraph>;
+    let message = <Paragraph>One more step to activate the service:<br/> Choose an account to send you notifications</Paragraph>;
     if (user.category === 2) { // revoked tokens
-        message = <Paragraph>Il semble que votre compte Twitter a été désactivé :<br/> Reconnectez vous à l'étape deux pour réactiver le service</Paragraph>;
+        message = <Paragraph>It seems that your Twitter account has been deactivated:<br/> Log in again to reactivate the service.</Paragraph>;
     }
     if (user.dmUsername) {
-        message = <Paragraph>Tout est en ordre ! N'oubliez pas de suivre <Link href='https://twitter.com/unfollowninja' source='logged-in-intro'>@unfollowNinja</Link></Paragraph>;
+        message = <Paragraph>All clear! Don't forget to follow <Link href='https://twitter.com/unfollowmonkey' source='logged-in-intro'>@unfollowMonkey</Link></Paragraph>;
     }
     if (user.dmUsername && user.dmUsername !== user.username) {
-        message = <Paragraph>Tout est en ordre, <b>@{user.dmUsername}</b> vous préviendra par DM !
-            N'oubliez pas de suivre <Link href='https://twitter.com/unfollowninja' source='logged-in-intro'>@unfollowNinja</Link></Paragraph>;
+        message = <Paragraph>All clear, <b>@{user.dmUsername}</b> will notify you by DM!
+            Don't forget to follow <Link href='https://twitter.com/unfollowmonkey' source='logged-in-intro'>@unfollowMonkey</Link></Paragraph>;
     }
     return <div className={Styles.loggedInDetails}>
-        <Paragraph><Validate color='neutral-1' className={Styles.centerIcon}/> Bienvenue, <b>@{user.username}</b> !</Paragraph>
+        <Paragraph><Validate color='neutral-1' className={Styles.centerIcon}/> Welcome, <b>@{user.username}</b> !</Paragraph>
         {message}
         <Paragraph>
-            <Link href='#' onClick={e => {logout();e.preventDefault();}} source='disconnect'>Se déconnecter</Link>
-            {user.dmUsername ? <span> — <Link href='#' onClick={e => {removeDMs();e.preventDefault();}} source='disable'>Désactiver le service</Link>
+            <Link href='#' onClick={e => {logout();e.preventDefault();}} source='disconnect'>Log out</Link>
+            {user.dmUsername ? <span> — <Link href='#' onClick={e => {removeDMs();e.preventDefault();}} source='disable'>Disable the service</Link>
             </span> : null}
         </Paragraph>
     </div>
@@ -131,12 +131,12 @@ function MiniApp(props) {
 
   return (
       <Box gap='small' margin={{horizontal: 'small', vertical: 'medium'}} {...props}>
-        {error ? <Paragraph textAlign='center'><Alert/><br/>Impossible de joindre le serveur, réessayez plus tard...</Paragraph> : null}
+        {error ? <Paragraph textAlign='center'><Alert/><br/>Unable to reach the server, try again later...</Paragraph> : null}
         <Confetti active={step2} className={Styles.confettis}/>
         <LoggedInIntro user={data?.user} logout={logout} removeDMs={removeDMs} getInfo={refetch}/>
         <Button
             icon={<Twitter color={step0 ? 'white' : null}/>}
-            label='Connectez-vous à votre compte'
+            label='Login to your account'
             primary={step0}
             style={step0 ? {color: 'white'} : {}}
             disabled={!data?.twitterStep1AuthUrl || !step0}
@@ -144,7 +144,7 @@ function MiniApp(props) {
         />
         <Button
             icon={<ChatOption color={step1 ? 'white' : null}/>}
-            label={step2 ? 'Changer le compte d\'envoi de DMs' : 'Activez les notifications par DM'}
+            label={step2 ? 'Changing the DMs sending account' : 'Enable DM notifications'}
             primary={step1}
             style={step1 ? {color: 'white'} : {}}
             disabled={!data?.twitterStep2AuthUrl || step0}
@@ -152,10 +152,10 @@ function MiniApp(props) {
         />
         <Button
             icon={<UserExpert color={step2 ? 'white' : null}/>}
-            label={'Suivez @UnfollowNinja'}
+            label={'Follow @UnfollowMonkey'}
             primary={step2}
             style={step2 ? {color: 'white'} : {}}
-            href='https://twitter.com/unfollowninja'
+            href='https://twitter.com/unfollowmonkey'
             onClick={sendStep3Event}
             target='_blank'
             rel='noopener'

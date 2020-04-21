@@ -71,7 +71,7 @@ const Mutation: resolver = {
         if (!params.token) { // params = {}
             params = {
                 added_at: Date.now(),
-                lang: 'fr',
+                lang: 'en',
                 token: user.token,
                 tokenSecret: user.secret,
             };

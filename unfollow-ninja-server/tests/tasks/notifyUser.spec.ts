@@ -89,7 +89,7 @@ describe('notifyUser task', () => {
                 '  • @twitto123 unfollowed you 👋.\n' +
                 'This account followed you for 33 minutes (01/01/1970).\n' +
                 '  • @twitto234 unfollowed you 👋.\n' +
-                'This account followed you before you signed up to @unfollowninja!');
+                'This account followed you before you signed up to @unfollowmonkey!');
     });
 
     test('one unfollower, one twitter glitch (followed_by=true)', async () => {

@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /cgu.pdf
-Sitemap: https://unfollow.ninja/sitemap.xml
+Sitemap: https://unfollow-monkey.com/sitemap.xml
