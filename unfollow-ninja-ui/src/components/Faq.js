@@ -5,39 +5,38 @@ import Styles from './Faq.module.scss';
 
 function Faq(props) {
     return <Box alignSelf='center' pad='medium' margin='medium' className={Styles.container} {...props}>
-            <Heading level={1} color='dark'>Foire aux questions</Heading>
+            <Heading level={1} color='dark'>Frequently Asked Questions</Heading>
 
-            <Heading level={3} color='dark'>Un ami m'a unfollow mais je n'ai pas été prévenu</Heading>
-            <Paragraph>Pour éviter de vous déranger trop souvent, plusieurs filtres s'appliquent sur les notifications envoyées. Pour être certain d'avoir la notification, la personne doit vous avoir suivie 24h et unfollow 20 minutes.</Paragraph>
+            <Heading level={3} color='dark'>A friend of mine unfollowed me, but I wasn't told</Heading>
+            <Paragraph>To avoid disturbing you too often, several filters apply to the notifications sent.
+                To be sure to get the notification, the person must have followed you for 24 hours and unfollow 20 minutes.</Paragraph>
 
-            <Heading level={3} color='dark'>Publierez-vous des tweets sans mon accord ?</Heading>
-            <Paragraph>Nous ne publierons jamais de tweet sans votre accord ! Seul le compte d'envoi de messages privés donne la permission d'envoi de tweets.
-                Cela est dû au fonctionnement des permissions Twitter : il n'y a que 3 ensembles de permissions, et nous ne pouvons demander la permission d'envoi de DMs sans celle d'envoi de tweets.
-                Vous pouvez créer un compte Twitter séparé dédié à l'envoi de ces messages si vous le souhaitez.</Paragraph>
+            <Heading level={3} color='dark'>Will you publish tweets without my consent?</Heading>
+            <Paragraph>We will never publish a tweet without your agreement! Only the DM account gives permission to send tweets.
+                This is due to the way Twitter permissions work: there are only 3 sets of permissions, and we can't ask permission to send DMs without permission to send tweets.
+                You can create a separate Twitter account dedicated to sending these messages if you wish.</Paragraph>
 
-            <Heading level={3} color='dark'>Pourquoi l'étape 2 demande tant de permissions ?</Heading>
-            <Paragraph>Comme décrit précédemment, cela est dû au fonctionnement des permissions Twitter : il n'y a que 3 ensembles de permissions, et nous ne pouvons demander la permission d'envoi de DMs sans les autres.
-                Jamais nous n'avons extrait ces jetons pour les utiliser autrement que dans le cadre de cette application open-source.
-                Vous pouvez créer un compte Twitter séparé dédié à l'envoi de ces messages si vous le souhaitez, pour plus de sérénité. Une possibilité de notifications chrome est à l'étude :).</Paragraph>
+            <Heading level={3} color='dark'>Why does step 2 require so many permissions?</Heading>
+            <Paragraph>As described above, this is due to the way Twitter permissions work: there are only 3 sets of permissions, and we can't request permission to send DMs without the others.
+                We have never extracted these tokens to use them other than in this open-source application.
+                You can create a separate Twitter account dedicated to sending these messages if you wish, for more serenity. A possibility of chrome notifications is under consideration :).
+            </Paragraph>
 
-
-            <Heading level={3} color='dark'>Que signifient les différents messages et emojis ?</Heading>
+            <Heading level={3} color='dark'>What do the different messages and emojis mean?</Heading>
             <ul>
-                <li>Les messages suivants parlent d'eux-meme :<ul>
-                    <li><b>@username</b> vous a unfollow <Emojis.WavingHand/></li>
-                    <li><b>@username</b> a été suspendu <Emojis.SeeNoEvil/></li>
-                    <li><b>@username</b> vous a bloqué  <Emojis.NoEntry/></li>
-                    <li>Vous avez bloqué <b>@username</b> <Emojis.Poo/></li>
+                <li>The following messages speak for themselves:<ul>
+                    <li><b>@username</b> unfollowed you <Emojis.WavingHand/></li>
+                    <li><b>@username</b> has been suspended <Emojis.SeeNoEvil/></li>
+                    <li><b>@username</b> blocked you <Emojis.NoEntry/></li>
+                    <li>You have blocked <b>@username</b> <Emojis.Poo/></li>
                 </ul></li>
-                <li><b>@username</b> a quitté Twitter <Emojis.SeeNoEvil/> peut signifier que la personne a été suspendue quelques minutes, a fermé son compte, ou a été retirée de Twitter par exemple à cause de la limite d'âge.</li>
-                <li>L'emoji est un coeur brisé <Emojis.BrokenHeart/> si cette personne est un mutual, que vous la suiviez.</li>
-                <li>Si plus de 20 twittos vous unfollowent en moins de deux minutes, vous ne serez informé que des 20 premiers, ainsi que du nombre total de followers perdus.</li>
-                <li>"Un twitto a quitté Twitter <Emojis.SeeNoEvil/>" : quand le nom d'utilisateur de la personne qui a fermé son compte n'a pas eu le temps d'être sauvegardé (peut prendre 48h), vous ne recevez pas son pseudo, mais êtes informé de cet abonné en moins.</li>
-                <li>"Ce compte vous suivait avant votre inscription à <b>@unfollowninja</b> !" : nous n'arrivons pas toujours à retrouver la date de follow exacte de chaque unfollower. Si on ne la trouve pas, nous vous donnons la première fois que nous l'avons vu sur votre compte. Mais s'il était déjà sur votre compte lors de votre inscription, nous ne pouvons vous donner de date.</li>
+                <li><b>@username</b> has left Twitter <Emojis.SeeNoEvil/> may mean that the person has been suspended for a few minutes, closed their account, or has been removed from Twitter for example because of the age limit.</li>
+                <li>The emoji is a broken hear <Emojis.BrokenHeart/> if this person is a mutual, a person that you follow.</li>
+                <li>If more than 20 twittos unfollow you in less than two minutes, you will only be informed of the first 20, as well as the total number of lost followers.</li>
+                <li>"A twitto has left Twitter <Emojis.SeeNoEvil/>": when the username of the person who closed his account was not saved (may take 48 hours), you don't receive their username, but are informed of this lost follower.</li>
+                <li>"This account followed you before you signed up to <b>@unfollowmonkey</b>!" : we can't always find the exact follow date of each unfollower.
+                    If we can't find it, we give you the first time we saw it on your account. However, if they were already following you when you subscribed, we can't give you any date.</li>
             </ul>
-
-            <Heading level={3} color='dark'>Pourquoi le service est-il gratuit ?</Heading>
-            <Paragraph>Ce projet est maintenu sur mon temps libre, et me permet d'avoir un projet sur lequel je peux librement experimenter, en parallèle de mon travail. L'association Hivane Network permet au service d'exister à moindres frais grâce au prêt d'un serveur virtuel.</Paragraph>
         </Box>;
 }
 export default Faq;

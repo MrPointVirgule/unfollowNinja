@@ -6,13 +6,13 @@ import Link from "./Link";
 
 const Navbar = (props) => (
     <header className={Styles.navbar} {...props}>
-      <Link href='https://twitter.com/unfollowNinja' source='navbar'>
+      <Link href='https://twitter.com/unfollowMonkey' source='navbar'>
         <Box
             direction='row'
             pad={{horizontal: 'medium', vertical: 'small'}}
         >
             <Image title='logo' height={40} margin={{horizontal: 'xsmall'}} src={Images.Logo}/>
-            <Heading level={4} color='dark' margin={{vertical: 'small'}} style={{fontWeight: 500}}>UnfollowNinja</Heading>
+            <Heading level={4} color='dark' margin={{vertical: 'small'}} style={{fontWeight: 500}}>UnfollowMonkey</Heading>
         </Box>
       </Link>
     </header>
