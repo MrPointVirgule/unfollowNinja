@@ -45,7 +45,7 @@ export default class Scheduler {
     private async updateUserCountMetrics(): Promise<void> {
         try {
             for (const [category, count] of Object.entries(await this.dao.getUserCountByCategory())) {
-                metrics.gauge(`uninja.users.${UserCategory[category]}`, count)
+                metrics.gauge(`umonkey.users.${UserCategory[category]}`, count)
             }
         } catch (error) {
             Sentry.captureException(error);
