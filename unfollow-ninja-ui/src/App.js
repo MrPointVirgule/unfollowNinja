@@ -93,6 +93,7 @@ function App() {
               <Heading level={2} color='dark'>Unfollow Monkey is free for everyone</Heading>
               <Paragraph>Unfollow Monkey is based on the <Link href='https://github.com/PLhery/unfollowNinja'>open-source</Link> project <Link href='https://unfollow.ninja'>unfollowNinja</Link>, hosted by <Link href='https://pulseheberg.com/'>PulseHeberg</Link> and maintained by <Link href='https://twitter.com/plhery'>@plhery</Link>.</Paragraph>
               <Paragraph>Thanks to PulseHeberg for helping the project to remain substainable, efficient, free, supporting 100 000+ users. They also provide <Link href='https://pulseheberg.com/'>great and affordable servers and web hosting solutions</Link>, if you'd like to have a look!</Paragraph>
+              <Paragraph>I'm also experimenting with ads for a few days</Paragraph>
               <Box gap='small' alignSelf='center' style={{overflow: 'hidden'}}>
                 <RepoCard username="plhery" repo="unfollowninja"/>
               </Box>
